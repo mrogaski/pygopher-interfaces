@@ -6,7 +6,7 @@ Go-style interfaces for Python
 |status| |coverage|
 
 
-.. |status| image:: https://github.com/mrogaski/pygopher-interfaces/actions/workflows/ci.yaml/badge.svg
+.. |status| image:: https://github.com/mrogaski/pygopher-interfaces/actions/workflows/ci.yml/badge.svg
     :alt: Workflow Status
     :scale: 100%
     :target: https://github.com/mrogaski/pygopher-interfaces/actions
