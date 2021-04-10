@@ -11,9 +11,9 @@ jobs:
         python-version: [3.6, 3.7, 3.8, 3.9]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@master
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@master
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install Poetry
@@ -23,3 +23,8 @@ jobs:
       - name: Run tests
         run: |
           poetry run pytest --cov=src --cov-report=xml
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          verbose: true
