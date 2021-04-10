@@ -36,7 +36,7 @@ exclude_lines = ["pragma: no cover"]
 
 [tool.black]
 line-length = 120
-target-version = ["py39"]
+target-version = ["py38"]
 include = '\.pyi?$'
 
 [tool.isort]
