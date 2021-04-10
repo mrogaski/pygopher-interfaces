@@ -1,0 +1,33 @@
+[MASTER]
+init-hook = 'import sys; sys.path.append("src")'
+ignore = .git .venv .idea
+
+[MESSAGES CONTROL]
+disable =
+    fixme,
+    no-member,
+    unused-argument,
+    too-few-public-methods,
+    no-name-in-module
+
+[REPORTS]
+reports = no
+
+[BASIC]
+max-line-length = 120
+argument-rgx = [a-z_][a-z0-9_]{0,30}$
+function-rgx = [a-z_][a-z0-9_]*$
+variable-rgx = [a-z_][a-z0-9_]{0,30}$
+good-names = logger, T
+bad-names = l, I, O
+
+[LOGGING]
+logging-modules = logging
+
+[MISCELLANEOUS]
+notes = TODO, FIXME
+
+[SIMILARITIES]
+ignore-comments = yes
+ignore-docstring = yes
+ignore-imports = no
