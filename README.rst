@@ -1,6 +1,10 @@
 pygopher-interfaces
 ===================
 
+.. image:: https://api.codacy.com/project/badge/Grade/3bf96140a8e641339263e799e27ac45d
+   :alt: Codacy Badge
+   :target: https://app.codacy.com/gh/mrogaski/pygopher-interfaces?utm_source=github.com&utm_medium=referral&utm_content=mrogaski/pygopher-interfaces&utm_campaign=Badge_Grade_Settings
+
 Go-style interfaces for Python
 
 |status| |coverage|
