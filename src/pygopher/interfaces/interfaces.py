@@ -3,11 +3,13 @@ from typing import Set, Type
 
 
 class InterfaceMeta(type):
+
     """Metaclass that defines the subclass relationship without inheritance."""
 
     def __subclasscheck__(cls, subclass):
         def get_methods(obj: Type) -> Set:
-            """Return the set of public methods for a class.
+            """
+            Return the set of public methods for a class.
 
             Args:
                 obj: a class
@@ -28,4 +30,5 @@ class InterfaceMeta(type):
 
 
 class Interface(metaclass=InterfaceMeta):
+
     """An interface base class."""
