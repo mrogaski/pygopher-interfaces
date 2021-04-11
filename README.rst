@@ -7,7 +7,7 @@ Go-style interfaces for Python
 
 
 .. |status| image:: https://github.com/mrogaski/pygopher-interfaces/actions/workflows/ci.yml/badge.svg
-    :alt: Workflow Status
+    :alt: Status
     :scale: 100%
     :target: https://github.com/mrogaski/pygopher-interfaces/actions
 
@@ -15,3 +15,8 @@ Go-style interfaces for Python
     :alt: Test Coverage
     :scale: 100%
     :target: https://codecov.io/gh/mrogaski/pygopher-interfaces
+
+.. image:: https://app.codacy.com/project/badge/Grade/0516015cd3f94d66b7a7c8203255b6de
+    :alt: Code Quality
+    :scale: 100%
+    :target: https://www.codacy.com/gh/mrogaski/pygopher-interfaces/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mrogaski/pygopher-interfaces&amp;utm_campaign=Badge_Grade
