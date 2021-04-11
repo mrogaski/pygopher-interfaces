@@ -16,6 +16,9 @@ This package emulates Go-style interfaces by creating an ``Interface`` metaclass
 classes that override ``issubclass`` to test whether a class implements the methods of the interface class, rather than
 whether it inherits from the interface class.
 
+This is a tiny package that emulates on of my favorite features of Go.
+
+
 Installation
 ------------
 
@@ -58,30 +61,25 @@ To create an interface class, use the ``Interface`` metaclass.
 
 .. |status| image:: https://github.com/mrogaski/pygopher-interfaces/actions/workflows/pipeline.yml/badge.svg
     :alt: Status
-    :scale: 100%
     :target: https://github.com/mrogaski/pygopher-interfaces/actions
 
 .. |pypi| image:: https://img.shields.io/pypi/pyversions/pygopher-interfaces
     :alt: PyPI - Python Version
-    :scale: 100%
     :target: https://pypi.org/project/pygopher-interfaces/
 
 .. |license| image:: https://img.shields.io/pypi/l/pygopher-interfaces
     :alt: PyPI - License
-    :scale: 100%
     :target: https://github.com/mrogaski/pygopher-interfaces/blob/main/LICENSE
 
 .. |documentation| image:: https://img.shields.io/readthedocs/pygopher-interfaces
     :alt: Read the Docs
-    :scale: 100%
     :target: https://pygopher-interfaces.readthedocs.io/en/latest/
 
 .. |coverage| image:: https://codecov.io/gh/mrogaski/pygopher-interfaces/branch/main/graph/badge.svg?token=cu6sNIlaWt
     :alt: Test Coverage
-    :scale: 100%
     :target: https://codecov.io/gh/mrogaski/pygopher-interfaces
 
 .. |analysis| image:: https://app.codacy.com/project/badge/Grade/0516015cd3f94d66b7a7c8203255b6de
     :alt: Code Quality
-    :scale: 100%
     :target: https://www.codacy.com/gh/mrogaski/pygopher-interfaces/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mrogaski/pygopher-interfaces&amp;utm_campaign=Badge_Grade
+
