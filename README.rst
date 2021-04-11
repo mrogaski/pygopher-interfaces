@@ -56,7 +56,7 @@ To create an interface class, use the ``Interface`` metaclass.
     True
 
 
-.. |status| image:: https://github.com/mrogaski/pygopher-interfaces/actions/workflows/ci.yml/badge.svg
+.. |status| image:: https://github.com/mrogaski/pygopher-interfaces/actions/workflows/pipeline.yml/badge.svg
     :alt: Status
     :scale: 100%
     :target: https://github.com/mrogaski/pygopher-interfaces/actions
