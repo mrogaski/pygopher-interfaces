@@ -4,7 +4,6 @@ from typing import Set, Type
 
 
 class InterfaceMeta(type):
-
     """
     Metaclass that defines the subclass relationship without inheritance.
     """
@@ -21,7 +20,8 @@ class InterfaceMeta(type):
         """
 
         def get_method_signatures(obj: Type) -> Set:
-            """Return the set of public method signatures for a class.
+            """
+            Return the set of public method signatures for a class.
 
             Args:
                 obj: a class
