@@ -3,7 +3,7 @@ pygopher-interfaces
 
 .. rubric:: Go-style interfaces for Python
 
-|status| |coverage| |analysis|
+|status| |pypi| |license| |documentation| |coverage| |analysis|
 
 Interfaces in the Go programming language are a bit different than those found in Java or C++, as they
 are `implicit <https://tour.golang.org/methods/10>`_.  This means that there is no explicit "implements" relationship
@@ -60,6 +60,21 @@ To create an interface class, use the ``Interface`` metaclass.
     :alt: Status
     :scale: 100%
     :target: https://github.com/mrogaski/pygopher-interfaces/actions
+
+.. |pypi| image:: https://img.shields.io/pypi/pyversions/pygopher-interfaces
+    :alt: PyPI - Python Version
+    :scale: 100%
+    :target: https://pypi.org/project/pygopher-interfaces/
+
+.. |license| image:: https://img.shields.io/pypi/l/pygopher-interfaces
+    :alt: PyPI - License
+    :scale: 100%
+    :target: https://github.com/mrogaski/pygopher-interfaces/blob/main/LICENSE
+
+.. |documentation| image:: https://img.shields.io/readthedocs/pygopher-interfaces
+    :alt: Read the Docs
+    :scale: 100%
+    :target: https://pygopher-interfaces.readthedocs.io/en/latest/
 
 .. |coverage| image:: https://codecov.io/gh/mrogaski/pygopher-interfaces/branch/main/graph/badge.svg?token=cu6sNIlaWt
     :alt: Test Coverage
