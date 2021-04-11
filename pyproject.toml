@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pygopher-interfaces"
-version = "0.1.0b0"
+version = "0.1.0"
 description = "Go-style interfaces for Python"
 authors = ["Mark Rogaski <mrogaski@pobox.com>"]
 license = "MIT"
@@ -23,6 +23,11 @@ packages = [
 [tool.poetry.dependencies]
 python = ">=3.6.1,<4.0"
 importlib-metadata = { version = "^3.10.0" }
+Sphinx = { version = "^3.5.4", optional = true }
+sphinx-rtd-theme = { version = "^0.5.2", optional = true }
+
+[tool.poetry.extras]
+docs = ["sphinx", "sphinx-rtd-theme"]
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.3"
@@ -34,7 +39,7 @@ mypy = "^0.812"
 flake8 = "^3.9.0"
 flake8-cognitive-complexity = "^0.1.0"
 pytest-cov = "^2.11.1"
-coverage = {extras = ["toml"], version = "^5.5"}
+coverage = { extras = ["toml"], version = "^5.5" }
 pytest-pythonpath = "^0.7.3"
 
 [tool.coverage.run]

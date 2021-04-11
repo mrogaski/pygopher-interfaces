@@ -1,15 +1,13 @@
 # pylint: disable=invalid-name
 """Sphinx configuration."""
-import os
-import sys
 from typing import List
 
-sys.path.insert(0, os.path.abspath("../../src"))
-
+import pygopher.interfaces
 
 project = "pygopher-interfaces"
 copyright = "2021, Mark Rogaski"  # pylint: disable=redefined-builtin
 author = "Mark Rogaski"
+version = release = pygopher.interfaces.__version__
 
 extensions = ["sphinx.ext.autodoc"]
 templates_path = ["_templates"]
