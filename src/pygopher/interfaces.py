@@ -2,8 +2,12 @@
 import inspect
 from typing import Set, Type
 
+from importlib_metadata import version
 
-def get_method_signatures(obj: Type) -> Set:
+__version__ = version("pygopher-interfaces")
+
+
+def method_signatures(obj: Type) -> Set:
     """
     Return the set of public method signatures for a class.
 
@@ -37,8 +41,8 @@ class Interface(type):
 
         """
 
-        interface_methods = get_method_signatures(cls)
-        class_methods = get_method_signatures(subclass)
+        interface_methods = method_signatures(cls)
+        class_methods = method_signatures(subclass)
         return interface_methods.issubset(class_methods)
 
     def __instancecheck__(cls, instance):
