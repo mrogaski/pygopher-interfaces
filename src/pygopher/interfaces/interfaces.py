@@ -40,3 +40,15 @@ class Interface(type):
         interface_methods = get_method_signatures(cls)
         class_methods = get_method_signatures(subclass)
         return interface_methods.issubset(class_methods)
+
+    def __instancecheck__(cls, instance):
+        """
+
+        Args:
+            instance: an object which will be checked for matching method signatures.
+
+        Returns:
+            True if the instance class implements the interface, false otherwise.
+
+        """
+        return issubclass(type(instance), cls)

@@ -17,6 +17,7 @@ def test_subclass_trivial():
             pass
 
     assert issubclass(Dingus, AbstractDingus)
+    assert isinstance(Dingus(), AbstractDingus)
 
 
 def test_subclass_trivial_with_methods():
@@ -31,6 +32,7 @@ def test_subclass_trivial_with_methods():
             return True
 
     assert issubclass(Dingus, AbstractDingus)
+    assert isinstance(Dingus(), AbstractDingus)
 
 
 def test_subclass_equivalent():
@@ -45,6 +47,7 @@ def test_subclass_equivalent():
             return True
 
     assert issubclass(Dingus, AbstractDingus)
+    assert isinstance(Dingus(), AbstractDingus)
 
 
 def test_subclass_equivalent_signatures():
@@ -59,6 +62,7 @@ def test_subclass_equivalent_signatures():
             return True
 
     assert issubclass(Dingus, AbstractDingus)
+    assert isinstance(Dingus(), AbstractDingus)
 
 
 def test_subclass_failure_missing_method():
@@ -72,6 +76,7 @@ def test_subclass_failure_missing_method():
         pass
 
     assert not issubclass(Dingus, AbstractDingus)
+    assert not isinstance(Dingus(), AbstractDingus)
 
 
 def test_subclass_failure_argument_mismatch():
@@ -86,6 +91,7 @@ def test_subclass_failure_argument_mismatch():
             raise NotImplementedError
 
     assert not issubclass(Dingus, AbstractDingus)
+    assert not isinstance(Dingus(), AbstractDingus)
 
 
 def test_subclass_failure_argument_type_mismatch():
@@ -100,6 +106,7 @@ def test_subclass_failure_argument_type_mismatch():
             raise NotImplementedError
 
     assert not issubclass(Dingus, AbstractDingus)
+    assert not isinstance(Dingus(), AbstractDingus)
 
 
 def test_subclass_failure_return_type_mismatch():
@@ -114,3 +121,4 @@ def test_subclass_failure_return_type_mismatch():
             raise NotImplementedError
 
     assert not issubclass(Dingus, AbstractDingus)
+    assert not isinstance(Dingus(), AbstractDingus)
