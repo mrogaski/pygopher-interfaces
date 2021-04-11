@@ -1,34 +1,47 @@
 """Interface base class implementations."""
+import inspect
 from typing import Set, Type
 
 
 class InterfaceMeta(type):
 
-    """Metaclass that defines the subclass relationship without inheritance."""
+    """
+    Metaclass that defines the subclass relationship without inheritance.
+    """
 
     def __subclasscheck__(cls, subclass):
-        def get_methods(obj: Type) -> Set:
-            """
-            Return the set of public methods for a class.
+        """
+
+        Args:
+            subclass: a class which will be checked for matching method signatures.
+
+        Returns:
+            True if the subclass implements the interface, false otherwise.
+
+        """
+
+        def get_method_signatures(obj: Type) -> Set:
+            """Return the set of public method signatures for a class.
 
             Args:
                 obj: a class
 
             Returns:
-                A set containing the method names.  Dunder methods, private methods, and properties are excluded.
+                A set containing the method signatures.  Dunder methods, private methods, and properties are excluded.
 
             """
             return {
-                attribute
-                for attribute in dir(obj)
-                if callable(getattr(obj, attribute)) and attribute.startswith("_") is False
+                inspect.signature(attribute)
+                for attribute in [getattr(obj, name) for name in dir(obj) if not name.startswith("_")]
+                if callable(attribute)
             }
 
-        interface_methods = get_methods(cls)
-        class_methods = get_methods(subclass)
+        interface_methods = get_method_signatures(cls)
+        class_methods = get_method_signatures(subclass)
         return interface_methods.issubset(class_methods)
 
 
 class Interface(metaclass=InterfaceMeta):
-
-    """An interface base class."""
+    """
+    An interface base class.
+    """
