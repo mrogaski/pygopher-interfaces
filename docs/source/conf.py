@@ -7,7 +7,7 @@ import pygopher.interfaces
 project = "pygopher-interfaces"
 copyright = "2021, Mark Rogaski"  # pylint: disable=redefined-builtin
 author = "Mark Rogaski"
-revision = pygopher.interfaces.__version__
+version = release = pygopher.interfaces.__version__
 
 extensions = ["sphinx.ext.autodoc"]
 templates_path = ["_templates"]
