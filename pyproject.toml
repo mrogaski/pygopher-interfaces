@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pygopher-interfaces"
-version = "0.1.0a1"
+version = "0.1.0a2"
 description = "Go-style interfaces for Python"
 authors = ["Mark Rogaski <mrogaski@pobox.com>"]
 license = "MIT"
