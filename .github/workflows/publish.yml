@@ -1,12 +1,7 @@
 name: publish
 
 on:
-  workflow_run:
-    workflows:
-      - lint
-      - test
-    types:
-      - completed
+  push:
     tags:
       - v*
 
