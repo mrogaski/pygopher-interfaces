@@ -1,22 +1,33 @@
-name: publish to PyPI
+name: publish
 
-on: [ push ]
+on:
+  workflow_run:
+    workflows:
+      - lint
+      - test
+    types:
+      - completed
+    tags:
+      - v*
 
 jobs:
-
   upload:
-    needs: test
+    name: Publish to PyPI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+
       - name: Set up Python 3.10
         uses: actions/setup-python@master
         with:
           python-version: 3.10
+
       - name: Install Poetry
         run: python -m pip install --upgrade pip poetry
+
       - name: Build distribution packages
         run: poetry build
+
       - name: Publish distribution packages to Test PyPI
         uses: pypa/gh-action-pypi-publish@master
         with:
@@ -24,6 +35,7 @@ jobs:
           repository_url: https://test.pypi.org/legacy/
           skip_existing: true
           verbose: true
+
       - name: Publish package to PyPI
         if: startsWith(github.ref, 'refs/tags')
         uses: pypa/gh-action-pypi-publish@release/v1
