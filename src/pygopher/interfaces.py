@@ -1,13 +1,18 @@
 """Interface base class implementations."""
 import inspect
-from typing import Set, Type
+import sys
+import typing as tp
 
-from importlib_metadata import version
+
+if sys.version_info < (3, 8):
+    from importlib_metadata import version
+else:
+    from importlib.metadata import version
 
 __version__ = version("pygopher-interfaces")
 
 
-def method_signatures(obj: Type) -> Set:
+def method_signatures(obj: type) -> tp.Set[inspect.Signature]:
     """
     Return the set of public method signatures for a class.
 
@@ -30,7 +35,7 @@ class Interface(type):
     Metaclass that defines the subclass relationship without inheritance.
     """
 
-    def __subclasscheck__(cls, subclass):
+    def __subclasscheck__(cls, subclass: type) -> bool:
         """
 
         Args:
@@ -45,7 +50,7 @@ class Interface(type):
         class_methods = method_signatures(subclass)
         return interface_methods.issubset(class_methods)
 
-    def __instancecheck__(cls, instance):
+    def __instancecheck__(cls, instance: type) -> bool:
         """
 
         Args:

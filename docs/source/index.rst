@@ -7,4 +7,3 @@ pygopher-interfaces
    Introduction <overview>
    api
    changelog
-

@@ -1,11 +1,20 @@
-[tool.poetry]
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
 name = "pygopher-interfaces"
-version = "0.1.2"
+dynamic = ["version"]
 description = "Go-style interfaces for Python"
-authors = ["Mark Rogaski <mrogaski@pobox.com>"]
-license = "MIT"
+authors = [
+    { name = "Mark Rogaski", email = "mrogaski@pobox.com" },
+]
+maintainers = [
+    { name = "Mark Rogaski", email = "mrogaski@pobox.com" },
+]
+requires-python = ">=3.7"
+license-files = { paths = ["LICENSE"] }
 readme = "README.rst"
-repository = "https://github.com/mrogaski/pygopher-interfaces"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -16,59 +25,84 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Typing :: Typed"
 ]
-packages = [
-    { include = "pygopher", from = "src" }
+dependencies = [
+    "importlib_metadata; python_version<'3.8'",
 ]
 
-[tool.poetry.dependencies]
-python = ">=3.7,<4.0"
-importlib-metadata = { version = "*" }
-Sphinx = { version = "*", optional = true }
-sphinx-rtd-theme = { version = "*", optional = true }
+[project.urls]
+Changelog = "https://github.com/mrogaski/pygopher-interfaces/blob/main/CHANGELOG.rst"
+"Bug Tracker" = "https://github.com/mrogaski/pygopher-interfaces/issues"
+"Source Code" = "https://github.com/mrogaski/pygopher-interfaces"
 
-[tool.poetry.extras]
-docs = ["sphinx", "sphinx-rtd-theme"]
+[tool.hatch.build.targets.wheel]
+packages = ["src/pygopher"]
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.0.0"
-pre-commit = ">=2.9.3"
-black = "*"
-isort = "*"
-pylint = "*"
-mypy = "*"
-flake8 = "*"
-flake8-cognitive-complexity = "*"
-pytest-cov = "*"
-coverage = { extras = ["toml"], version = "*" }
+[tool.hatch.version]
+source = "vcs"
+
+[project.optional-dependencies]
+tests = [
+    "coverage[toml]",
+    "pytest>=7.0",
+    "pytest-cov",
+]
+linters = [
+    "pylint",
+]
+typing = [
+    "mypy",
+]
+docs = [
+    "sphinx",
+    "sphinx-rtd-theme",
+]
+dev = ["pygopher-interfaces[tests,linters,typing,docs]"]
 
 [tool.coverage.run]
+parallel = true
 branch = true
-omit = []
+source = ["pygopher"]
+
+[tool.coverage.paths]
+source = ["src"]
 
 [tool.coverage.report]
 show_missing = true
 ignore_errors = true
-exclude_lines = ["pragma: no cover"]
+exclude_lines = [
+    # a more strict default pragma
+    "\\# pragma: no cover\\b",
+
+    # allow defensive code
+    "^\\s*raise AssertionError\\b",
+    "^\\s*raise NotImplementedError\\b",
+    "^\\s*return NotImplemented\\b",
+    "^\\s*raise$",
+
+    # typing-related code
+    "^if (False|TYPE_CHECKING):",
+    ": \\.\\.\\.(\\s*#.*)?$",
+    "^ +\\.\\.\\.$",
+    "-> ['\"]?NoReturn['\"]?:",
+]
 
 [tool.black]
 line-length = 120
-target-version = ["py38"]
-include = '\.pyi?$'
 
 [tool.isort]
-known_first_party = "go_interfaces"
+known_first_party = "pygopher"
 line_length = 120
-multi_line_output = 3
-use_parentheses = true
-include_trailing_comma = true
-ensure_newline_before_comments = true
-force_grid_wrap = 0
-[build-system]
-requires = ["poetry>=1.0"]
-build-backend = "poetry.masonry.api"
+profile = "attrs"
 
 [tool.mypy]
+strict = true
+show_error_codes = true
 ignore_missing_imports = true
+warn_return_any = false
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+ignore_errors = true
 
 [tool.pytest.ini_options]
 minversion = "7.0"

@@ -1,16 +1,24 @@
 # pylint: disable=invalid-name
 """Sphinx configuration."""
-from typing import List
+from importlib import metadata
 
-import pygopher.interfaces
 
 project = "pygopher-interfaces"
-copyright = "2021, Mark Rogaski"  # pylint: disable=redefined-builtin
 author = "Mark Rogaski"
-version = release = pygopher.interfaces.__version__
+copyright = f"2023, {author}"  # pylint: disable=redefined-builtin
 
-extensions = ["sphinx.ext.autodoc"]
+release = metadata.version("pygopher-interfaces")
+version = release.rsplit(".", 1)[0]
+if "dev" in release:
+    release = version = "UNRELEASED"
+
+extensions = ["sphinx.ext.autodoc", "sphinx.ext.doctest"]
 templates_path = ["_templates"]
-exclude_patterns: List[str] = []
+exclude_patterns: list[str] = []
 html_theme = "sphinx_rtd_theme"
-html_static_path = ["_static"]
+html_static_path = []
+
+default_role = "any"
+add_function_parentheses = True
+autodoc_typehints = "description"
+autodoc_typehints_description_target = "documented"
