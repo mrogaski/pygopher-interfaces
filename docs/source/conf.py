@@ -1,5 +1,7 @@
 # pylint: disable=invalid-name
 """Sphinx configuration."""
+import typing as tp
+
 from importlib import metadata
 
 
@@ -14,7 +16,7 @@ if "dev" in release:
 
 extensions = ["sphinx.ext.autodoc", "sphinx.ext.doctest"]
 templates_path = ["_templates"]
-exclude_patterns: list[str] = []
+exclude_patterns: tp.List[str] = []
 html_theme = "sphinx_rtd_theme"
 html_static_path = []
 
