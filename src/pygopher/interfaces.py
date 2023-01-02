@@ -35,7 +35,7 @@ class Interface(type):
     Metaclass that defines the subclass relationship without inheritance.
     """
 
-    def __subclasscheck__(cls, subclass: type) -> bool:
+    def __subclasscheck__(self, subclass: type) -> bool:
         """
 
         Args:
@@ -46,11 +46,11 @@ class Interface(type):
 
         """
 
-        interface_methods = method_signatures(cls)
+        interface_methods = method_signatures(self)
         class_methods = method_signatures(subclass)
         return interface_methods.issubset(class_methods)
 
-    def __instancecheck__(cls, instance: type) -> bool:
+    def __instancecheck__(self, instance: type) -> bool:
         """
 
         Args:
@@ -60,4 +60,4 @@ class Interface(type):
             True if the instance class implements the interface, false otherwise.
 
         """
-        return issubclass(type(instance), cls)
+        return issubclass(type(instance), self)
