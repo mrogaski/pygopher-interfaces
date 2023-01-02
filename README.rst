@@ -59,9 +59,9 @@ To create an interface class, use the ``Interface`` metaclass.
     True
 
 
-.. |status| image:: https://github.com/mrogaski/pygopher-interfaces/actions/workflows/pipeline.yml/badge.svg
+.. |status| image:: https://github.com/mrogaski/pygopher-interfaces/workflows/CI/badge.svg?branch=main
     :alt: Status
-    :target: https://github.com/mrogaski/pygopher-interfaces/actions
+    :target: https://github.com/mrogaski/pygopher-interfaces/actions?workflow=CI
 
 .. |pypi| image:: https://img.shields.io/pypi/pyversions/pygopher-interfaces
     :alt: PyPI - Python Version
@@ -82,4 +82,3 @@ To create an interface class, use the ``Interface`` metaclass.
 .. |analysis| image:: https://app.codacy.com/project/badge/Grade/0516015cd3f94d66b7a7c8203255b6de
     :alt: Code Quality
     :target: https://www.codacy.com/gh/mrogaski/pygopher-interfaces/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mrogaski/pygopher-interfaces&amp;utm_campaign=Badge_Grade
-
