@@ -1,4 +1,5 @@
 """Interface base class implementations."""
+
 import inspect
 import sys
 import typing as tp

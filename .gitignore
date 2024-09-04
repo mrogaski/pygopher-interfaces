@@ -17,6 +17,7 @@ coverage.xml
 *.cover
 *.py,cover
 .pytest_cache/
+.tox/
 
 # Sphinx documentation
 docs/_build/
